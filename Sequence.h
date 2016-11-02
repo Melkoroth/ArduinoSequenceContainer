@@ -96,7 +96,6 @@ class CSequence {
 		bool remove(const TElem&);
 		//Returns elem at given index
 		const TElem& getByPos(const int pos) const;
-		void sortInPlace();
 
 	private:
 		CNodeSequence<TElem> *_first, *_prec;
@@ -245,7 +244,7 @@ void CSequence<TElem>::reverse() {
 //Returns element at given sequence position [0-numElems]
 template <class TElem>
 const TElem& CSequence<TElem>::getByPos(const int pos) const {
-	if (pos <= _numElems-1) {
+	if ((pos <= _numElems-1) && (pos >= 0)) {
 		CNodeSequence<TElem> *act = _first->next();	
 		for (int i = 0; i < pos; i++) {
 			act = act->next();

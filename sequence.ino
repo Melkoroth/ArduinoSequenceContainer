@@ -53,18 +53,6 @@ void setup() {
 
   //Remove by reference
   Serial.println("##### REMOVE BY REFERENCE #####");
-  Serial.println("del 2");
-  seq.remove(2);
-  printSequence(seq);  
-  Serial.println("del 24");
-  seq.remove(24);
-  printSequence(seq);  
-  Serial.println("del 9");
-  seq.remove(9);
-  printSequence(seq);  
-  Serial.println("del 10");
-  seq.remove(1540);
-  printSequence(seq);  
   Serial.println("del -1");
   seq.remove(-1);
   printSequence(seq);  
@@ -74,28 +62,56 @@ void setup() {
   Serial.println("del 0");
   seq.remove(0);
   printSequence(seq);  
+
+  Serial.println("del 2");
+  seq.remove(2);
+  printSequence(seq);  
+  Serial.println("del 9");
+  seq.remove(9);
+  printSequence(seq);  
+  Serial.println("del 24");
+  seq.remove(24);
+  printSequence(seq);  
+  Serial.println("del 1540");
+  seq.remove(1540);
+  printSequence(seq);  
   Serial.println();
 
   //Test find algorithm deleting
   Serial.println("##### FIND BY REFERENCE #####");
-  Serial.print("Found8?: ");
-  boolean result = seq.find(8);
-  Serial.println(result);
+  Serial.print("Found1?: ");
+  boolean result = seq.find(1);
+  Serial.print(result);
   Serial.print(" proof: ");
   Serial.println(seq.actual());
-  Serial.print("Found6?: ");
-  result = seq.find(6);
-  Serial.println(result);
+  Serial.print("Found23?: ");
+  result = seq.find(23);
+  Serial.print(result);
   Serial.print(" proof: ");
   Serial.println(seq.actual());
-  Serial.print("Found10?: ");
-  result = seq.find(10);
-  Serial.println(result);
+  Serial.print("Found15?: ");
+  result = seq.find(15);
+  Serial.print(result);
   Serial.print(" proof: ");
   Serial.println(seq.actual());
-  Serial.print("Found10?: ");
+  Serial.print("Found-1?: ");
   result = seq.find(-1);
-  Serial.println(result);
+  Serial.print(result);
+  Serial.print(" proof: ");
+  Serial.println(seq.actual());
+  Serial.print("Found0?: ");
+  result = seq.find(0);
+  Serial.print(result);
+  Serial.print(" proof: ");
+  Serial.println(seq.actual());
+  Serial.print("Found24?: ");
+  result = seq.find(24);
+  Serial.print(result);
+  Serial.print(" proof: ");
+  Serial.println(seq.actual());
+  Serial.print("Found123?: ");
+  result = seq.find(123);
+  Serial.print(result);
   Serial.print(" proof: ");
   Serial.println(seq.actual());
   Serial.println();
@@ -110,6 +126,8 @@ void setup() {
 
   //Test getByPos
   Serial.println("##### GET BY INDEX #####");
+  Serial.print("Get -1: ");
+  Serial.println(seq.getByPos(-1));
   Serial.print("Get 0: ");
   Serial.println(seq.getByPos(0));
   Serial.print("Get 1: ");
