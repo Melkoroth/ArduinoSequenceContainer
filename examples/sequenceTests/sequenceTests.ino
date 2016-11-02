@@ -24,15 +24,19 @@
 // #############################################################################
 
 #include "Arduino.h"
-#include "Sequence.h"
+#include <Sequence.h>
 
 //Iteration example
 void printSequence(CSequence<uint8_t>& seq) {
-  for (seq.restart(); !seq.isEnd(); seq.forward()) {
-    Serial.print(seq.actual());
-    Serial.print(",");
+  if (!seq.isEmpty()) {
+    for (seq.restart(); !seq.isEnd(); seq.forward()) {
+      Serial.print(seq.actual());
+      Serial.print(",");
+    }
+    Serial.println();
+  } else {
+    Serial.println("empty sequence");
   }
-  Serial.println();
 }
 
 void setup() {
@@ -49,7 +53,8 @@ void setup() {
   for (uint8_t i = 0; i < 25; i++) {
     seq.add(i);
   }
-  printSequence(seq);  Serial.println();
+  printSequence(seq);  
+  Serial.println();
 
   //Remove by reference
   Serial.println("##### REMOVE BY REFERENCE #####");
