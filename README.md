@@ -33,7 +33,7 @@ const TElem& getByPos(const int pos) const;
 
 ```
 
-## USAGE:
+### Usage:
 
 ```c++
 //Declare
