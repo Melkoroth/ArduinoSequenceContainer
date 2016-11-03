@@ -27,7 +27,8 @@
 #include <Sequence.h>
 
 //Iteration example
-void printSequence(CSequence<uint8_t>& seq) {
+template <class TElem>
+void printSequence(CSequence<TElem>& seq) {
   if (!seq.isEmpty()) {
     for (seq.restart(); !seq.isEnd(); seq.forward()) {
       Serial.print(seq.actual());
