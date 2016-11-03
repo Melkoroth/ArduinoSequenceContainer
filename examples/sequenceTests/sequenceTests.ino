@@ -67,7 +67,6 @@ void setup() {
   Serial.println("del 0");
   seq.remove(0);
   printSequence(seq);  
-
   Serial.println("del 2");
   seq.remove(2);
   printSequence(seq);  
@@ -77,8 +76,8 @@ void setup() {
   Serial.println("del 24");
   seq.remove(24);
   printSequence(seq);  
-  Serial.println("del 1540");
-  seq.remove(1540);
+  Serial.println("del 254");
+  seq.remove(254);
   printSequence(seq);  
   Serial.println();
 
@@ -143,18 +142,12 @@ void setup() {
   Serial.println(seq.getByPos(3));
   Serial.print("Get 4: ");
   Serial.println(seq.getByPos(4));
-  Serial.print("Get numElems-1 [");
-  Serial.print(seq.numElems()-1);
-  Serial.print("]: ");
+  Serial.print("Get numElems-1: ");
   Serial.println(seq.getByPos(seq.numElems()-1));
-  Serial.print("Get numElems [");
-  Serial.print(seq.numElems());
-  Serial.print("]: ");
+  Serial.print("Get numElems: ");
   Serial.println(seq.getByPos(seq.numElems()));
-  Serial.print("Get numElems+15 [");
-  Serial.print(seq.numElems()+15);
-  Serial.print("]: ");
-  Serial.println(seq.getByPos(seq.numElems()+15));
+  Serial.print("Get 254: ");
+  Serial.println(seq.getByPos(254));
   Serial.println();
 
   //Iterates using isEmpty() as condition and deletes
