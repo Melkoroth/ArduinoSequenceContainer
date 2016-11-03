@@ -81,6 +81,31 @@ void setup() {
   printSequence(seq);  
   Serial.println();
 
+  //Update TElem for given position
+  Serial.println("##### UPDATE BY POS #####");
+  Serial.println("update -1");
+  seq.updateByPos(-1,11);
+  printSequence(seq);
+  Serial.println("update 0");
+  seq.updateByPos(0,22);
+  printSequence(seq);
+  Serial.println("update 1");
+  seq.updateByPos(1,33);
+  printSequence(seq);
+  Serial.println("update 15");
+  seq.updateByPos(15,44);
+  printSequence(seq);
+  Serial.println("update numElems-1");
+  seq.updateByPos(seq.numElems()-1,55);
+  printSequence(seq);
+  Serial.println("update numElems");
+  seq.updateByPos(seq.numElems(),66);
+  printSequence(seq);
+  Serial.println("update numElems+1");
+  seq.updateByPos(seq.numElems()+1,77);
+  printSequence(seq);  
+  Serial.println();
+
   //Test find algorithm deleting
   Serial.println("##### FIND BY REFERENCE #####");
   Serial.print("Found1?: ");

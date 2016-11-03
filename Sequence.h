@@ -96,6 +96,7 @@ class CSequence {
 		virtual bool remove(const TElem&);
 		//Returns elem at given index
 		virtual const TElem& getByPos(const int pos) const;
+		virtual void updateByPos(const int, const TElem&);
 
 	protected:
 		CNodeSequence<TElem> *_first, *_prec;
@@ -252,6 +253,17 @@ const TElem& CSequence<TElem>::getByPos(const int pos) const {
 		return act->elem();
 	}
 	return 0;
+}
+
+template <class TElem>
+void CSequence<TElem>::updateByPos(const int pos, const TElem& elem) {
+	if ((pos <= _numElems-1) && (pos >= 0)) {
+		CNodeSequence<TElem> *act = _first->next();	
+		for (int i = 0; i < pos; i++) {
+			act = act->next();
+		}
+		act->_elem = elem;
+	}
 }
 
 //If found returns true & leaves the point of interest at item.
