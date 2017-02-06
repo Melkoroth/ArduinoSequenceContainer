@@ -1,9 +1,9 @@
 // #############################################################################
 // #
 // # Name       : sequence.h
-// # Version    : 1.1
+// # Version    : 1.2
 // # Author     : Juan L. Perez Diez <ender.vs.melkor at gmail>
-// # Date       : 30.10.2016
+// # Date       : 06.02.2017
 // 
 // # Description: Implements a class for using sequences of items. 
 //	 Arduino compatible.
