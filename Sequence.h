@@ -7,6 +7,7 @@
 // 
 // # Description: Implements a class for using sequences of items. 
 //	 Arduino compatible.
+//	 find() and remove() methods need operator== implemented in the class
 // 
 // #  This program is free software: you can redistribute it and/or modify
 //    it under the terms of the GNU General Public License as published by
@@ -95,7 +96,7 @@ class CSequence {
 		//Removes a given element
 		virtual bool remove(const TElem&);
 		//Returns elem at given index
-		virtual const TElem& getByPos(const int pos) const;
+		//virtual const TElem& getByPos(const int pos) const;
 		virtual void updateByPos(const int, const TElem&);
 
 	protected:
@@ -242,18 +243,20 @@ void CSequence<TElem>::reverse() {
 	}
 }
 
+//TODO: This isn't valid for TElems that can't return "0"
+//A possible fix would be to return a pointer to the elem instead
 //Returns element at given sequence position [0-numElems]
-template <class TElem>
-const TElem& CSequence<TElem>::getByPos(const int pos) const {
-	if ((pos <= _numElems-1) && (pos >= 0)) {
-		CNodeSequence<TElem> *act = _first->next();	
-		for (int i = 0; i < pos; i++) {
-			act = act->next();
-		}
-		return act->elem();
-	}
-	return 0;
-}
+// template <class TElem>
+// const TElem& CSequence<TElem>::getByPos(const int pos) const {
+// 	if ((pos <= _numElems-1) && (pos >= 0)) {
+// 		CNodeSequence<TElem> *act = _first->next();	
+// 		for (int i = 0; i < pos; i++) {
+// 			act = act->next();
+// 		}
+// 		return act->elem();
+// 	}
+// 	return 0;
+// }
 
 template <class TElem>
 void CSequence<TElem>::updateByPos(const int pos, const TElem& elem) {
@@ -268,6 +271,7 @@ void CSequence<TElem>::updateByPos(const int pos, const TElem& elem) {
 
 //If found returns true & leaves the point of interest at item.
 //If not returns false & at end otherwise. O(n)
+//Needs operator== implemented for TElem
 template <class TElem>
 bool CSequence<TElem>::find(const TElem& elem) {
 	restart();
@@ -282,6 +286,7 @@ bool CSequence<TElem>::find(const TElem& elem) {
 
 //True if it finds and removes given element. O(n)
 //Leaves point of interest where element got removed or at end if not present
+//Needs operator== implemented for TElem
 template <class TElem>
 bool CSequence<TElem>::remove(const TElem& elem) {
 	restart();
