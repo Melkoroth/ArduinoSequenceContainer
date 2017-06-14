@@ -37,12 +37,12 @@ const TElem& getByPos(const int pos) const;
 
 ```c++
 //Declare
-CSequence<type> name;
+CSequence<type> seq;
 //Using object methods
-name.method(typeVar);
+seq.method(typeVar);
 //Iterate
-if (!name.isEmpty()) {
-	for (name.restart(); !name.isEnd(); name.forward()) {
+if (!seq.isEmpty()) {
+	for (seq.restart(); !seq.isEnd(); seq.forward()) {
     	//Do something
   	}
 }
